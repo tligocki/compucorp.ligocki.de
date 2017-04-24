@@ -1,0 +1,11 @@
+# compucorp.yml
+---
+- hosts: all
+  tasks:
+    - name: 1. Install required packages
+      apt: name={{ item }} update_cache=yes state=latest
+      with_items:
+        - nginx
+        - php-fpm
+        - drupal7-mod-civicrm
+        - drush
